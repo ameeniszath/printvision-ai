@@ -3,7 +3,7 @@ PrintVision AI - scoring + Gaussian-process optimisation (one file).
 Needs the trained weights (best.pt) and photos named T215_v1_a1.jpg etc.
 
 Locally:  python scripts/scoring_and_optimisation.py
-  (defaults: weights/best.pt and assets/temperature_tower; override with
+  (defaults: weights/best.pt and assets/sample_scoring_images; override with
    PRINTVISION_WEIGHTS and PRINTVISION_PHOTOS environment variables)
 In Colab: set the two variables to your Drive paths, or upload and run.
 """
@@ -20,9 +20,9 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 MODEL_PATH = os.environ.get("PRINTVISION_WEIGHTS", str(ROOT / "weights" / "best.pt"))
-PHOTO_DIR = Path(os.environ.get("PRINTVISION_PHOTOS", ROOT / "assets" / "temperature_tower"))
+PHOTO_DIR = Path(os.environ.get("PRINTVISION_PHOTOS", ROOT / "assets" / "sample_scoring_images"))
 SCORE_CONF = 0.03          # low on purpose (illustrative run); confidence is kept as a feature
-FAIL_CONF = 0.25           # a 'failed print' box above this marks the print failed
+FAIL_CONF = 0.75           # high on purpose: 'failed print' is the weakest class (test AP 0.12)
 DEFECTS = ["crack", "stringing defect"]
 
 NAME_RE = re.compile(r"T(?P<T>[\d.]+)_v(?P<v>\d)(?:_rep(?P<rep>\d+))?", re.I)

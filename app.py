@@ -387,9 +387,10 @@ with st.sidebar:
         "Confidence threshold",
         min_value=0.05,
         max_value=0.95,
-        value=0.36,
+        value=0.25,
         step=0.01,
-        help="Default 0.36 ≈ the F1-optimal threshold (F1 = 0.74 at 0.358).",
+        help="Default 0.25 ≈ the F1-optimal threshold of the v2 model "
+             "(best F1 0.64 at 0.22 on the held-out test set).",
     )
 
     show_confidence = st.checkbox(
@@ -408,8 +409,10 @@ with st.sidebar:
         )
         fail_conf = st.slider(
             "Failed-print confidence",
-            min_value=0.05, max_value=0.95, value=0.25, step=0.05,
-            help="A 'failed print' box above this marks the print failed.",
+            min_value=0.05, max_value=0.95, value=0.75, step=0.05,
+            help="A 'failed print' box above this marks the print failed. "
+                 "Kept high because 'failed print' is the weakest class "
+                 "(test AP 0.12) and gave false alarms on complete prints.",
         )
         w_crack = st.number_input("Crack weight", 0.0, 10.0, 1.0, 0.1)
         w_string = st.number_input("Stringing weight", 0.0, 10.0, 0.6, 0.1)
