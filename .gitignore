@@ -1,0 +1,46 @@
+# Model weights (download from Google Drive, see README)
+*.pt
+*.pth
+*.onnx
+*.engine
+weights/
+runs/
+
+# Datasets / Roboflow exports
+datasets/
+data/
+My-First-Project-*/
+*.zip
+
+# Generated outputs
+image_features.csv
+setting_scores.csv
+score_vs_temperature.png
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Secrets and credentials
+.env
+.env.*
+*.key
+*credentials*.json
+client_secret*.json
+kaggle.json
+.streamlit/secrets.toml
+
+# OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# Images over 5 MB: none in the repo today. List any future large images here.

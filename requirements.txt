@@ -1,0 +1,10 @@
+# Streamlit app (app.py) and scoring script (scripts/scoring_and_optimisation.py)
+streamlit>=1.30
+ultralytics>=8.0
+numpy
+pandas
+pillow
+altair
+scikit-learn
+scipy
+matplotlib
